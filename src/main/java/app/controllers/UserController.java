@@ -20,19 +20,19 @@ public class UserController {
 	public String create(String email, String password){
 		User user = null;
 		try{
-			user = new User(email, password);
+			user = new User();
 			userRepository.save(user);
 		} catch (Exception e){
 			return "Erro ao criar usuário " + e.toString();
 		}
-		return "Usuário criado com sucesso! (id= "+user.getId()+")";
+		return "Usuário criado com sucesso! (id= "+"user.getId()"+")";
 	}
 	
 	@RequestMapping("/delete")
 	@ResponseBody
 	public String delete(long id){
 		try{
-			User user = new User(id);
+			User user = new User();
 			userRepository.delete(user);
 		}catch (Exception e){
 			return "Erro ao deletar usuário: " + e.toString();
@@ -46,7 +46,7 @@ public class UserController {
 		String userId;
 		try{
 			User user = userRepository.findByEmail(email);
-			userId = String.valueOf(user.getId());
+			userId = String.valueOf(user.getUserId());
 		}catch (Exception e){
 			return "Usuário não encontrado: " + e.toString();
 		}
