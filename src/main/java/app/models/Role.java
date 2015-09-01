@@ -5,7 +5,6 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
@@ -15,23 +14,31 @@ import javax.persistence.Table;
 @Table(name="role")
 public class Role {
 
-	
-	private long role_id;
-	private String name;
-	private List<User> users = new ArrayList<User>();
-
-	// getters & setters
 	@Id
 	@GeneratedValue
-	public long getRole_id() {
-		return role_id;
-	}
-
-	public void setRole_id(long role_id) {
-		this.role_id = role_id;
-	}
-
+	@Column(name="role_id")
+	private long roleId;
+	
 	@Column(name = "name", unique = true, nullable = false, length = 40)
+	private String name;
+	
+	@ManyToMany(mappedBy = "roles")
+	private List<User> users;
+
+	//constructors
+	public Role() {
+		this.users = new ArrayList<User>();
+	}
+	
+	// getters & setters
+	public long getRoleId() {
+		return roleId;
+	}
+
+	public void setRoleId(long roleId) {
+		this.roleId = roleId;
+	}
+
 	public String getName() {
 		return name;
 	}
@@ -40,14 +47,15 @@ public class Role {
 		this.name = name;
 	}
 
-	@ManyToMany(fetch = FetchType.LAZY, mappedBy = "roles")
 	public List<User> getUsers() {
 		return users;
 	}
-	
+
 	public void setUsers(List<User> users) {
 		this.users = users;
 	}
+
+	
 	
 	
 	
