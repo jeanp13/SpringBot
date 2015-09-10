@@ -1,19 +1,40 @@
 package app.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import app.models.User;
 import app.models.UserRepository;
 
-@Controller
+@RestController
 @RequestMapping(value="/user")
 public class UserController {
 
 	@Autowired
 	private UserRepository userRepository;
+	
+	@RequestMapping(value = "/list", produces = "application/json")
+	public String list(@RequestParam(value="texto", defaultValue="sem texto") String texto){
+	
+		return String.format("%s", texto);
+				
+	}
+	
+	@RequestMapping("/list2")
+	public User list2(){
+		
+		User user = new User();
+		user.setUserId(0);
+		user.setEmail("email");
+		user.setEnabled(true);
+		user.setPassword("123");
+		user.setUsername("username");
+		
+		return user;
+	}
 	
 	@RequestMapping("/create")
 	@ResponseBody

@@ -26,19 +26,9 @@ public class MyUserDetailsService implements UserDetailsService {
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		
-		System.out.println("------------------------------");
-		System.out.println("Username = "+ username);
-		
 		app.models.User user = userRepository.findByUsername(username);
 		
-		System.out.println("User.email = " + user.getEmail() );
-		System.out.println("User.password = " + user.getPassword() );
-		System.out.println("------------------------------");
-		
 		List<GrantedAuthority> authorities = this.buildUserAuthority(user.getRoles());
-		System.out.println("User.roles = " + authorities.size() );
-		System.out.println("------------------------------");
-		
 		
 		return this.buildUserForAuthentication(user, authorities);
 	}
