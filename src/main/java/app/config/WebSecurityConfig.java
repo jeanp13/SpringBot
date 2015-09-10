@@ -22,20 +22,18 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	
 	@Autowired
 	public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception{
-		System.out.println("------------------- 01");
 		//auth.inMemoryAuthentication().withUser("user").password("password").roles("USER");
-		
 		auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder());
-		
 	}
 	
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		System.out.println("------------------- 02");
 		http
 			.authorizeRequests()
-				.antMatchers("/","/home","/create**").permitAll()
+				.antMatchers("/").permitAll()
 				.antMatchers("/user/**").access("hasRole('ADMIN')")
+				.antMatchers("/hello").access("hasRole('SUPER')")
+				//.antMatchers("/user/**").permitAll()
 				.anyRequest().authenticated()
 				.and()
 			.formLogin()
@@ -50,7 +48,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	
 	@Bean
 	public PasswordEncoder passwordEncoder(){
-		System.out.println("------------------- 03");
 		PasswordEncoder encoder = new BCryptPasswordEncoder();
 		return encoder;
 	}

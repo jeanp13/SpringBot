@@ -17,15 +17,21 @@ public class UserController {
 	
 	@RequestMapping("/create")
 	@ResponseBody
-	public String create(String email, String password){
+	public String create(String email, boolean enabled, String password, String username){
 		User user = null;
 		try{
 			user = new User();
+			user.setEmail(email);
+			user.setEnabled(enabled);
+			user.setPassword(password);
+			user.setUsername(username);
+			
 			userRepository.save(user);
+			
 		} catch (Exception e){
 			return "Erro ao criar usuário " + e.toString();
 		}
-		return "Usuário criado com sucesso! (id= "+"user.getId()"+")";
+		return "Usuário criado com sucesso! (id= "+user.getUserId()+")";
 	}
 	
 	@RequestMapping("/delete")

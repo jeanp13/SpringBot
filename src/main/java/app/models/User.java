@@ -12,6 +12,8 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+
 @Entity
 @Table(name = "user")
 public class User {
@@ -21,7 +23,7 @@ public class User {
 	@Column(name="user_id")
 	private long userId;
 	
-	@Column(name = "uername", unique = true, nullable = false, length = 200)
+	@Column(name = "username", unique = true, nullable = false, length = 200)
 	private String username;
 	
 	@Column(name = "password", nullable = false, length = 200)
@@ -35,8 +37,8 @@ public class User {
 	
 	@ManyToMany
 	@JoinTable(name = "user_roles",
-			joinColumns={@JoinColumn(name = "user_id", referencedColumnName="user_id")},
-			inverseJoinColumns={@JoinColumn(name = "role_id", referencedColumnName="role_id")})
+			joinColumns=@JoinColumn(name = "user_id", referencedColumnName="user_id"),
+			inverseJoinColumns=@JoinColumn(name = "role_id", referencedColumnName="role_id"))
 	private List<Role> roles;
 
 	// contructors
@@ -66,7 +68,11 @@ public class User {
 	}
 
 	public void setPassword(String password) {
-		this.password = password;
+		
+		BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+		String hashedPassword = passwordEncoder.encode(password);
+		
+		this.password = hashedPassword;
 	}
 
 	public String getEmail() {
