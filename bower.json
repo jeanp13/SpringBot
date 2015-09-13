@@ -1,0 +1,19 @@
+{
+  "name": "SpringBot",
+  "version": "0.0.0",
+  "homepage": "https://github.com/millysfabrielle/SpringBot",
+  "authors": [
+    "Millys Fabrielle <millysfabrielle@gmail.com>"
+  ],
+  "moduleType": [
+    "node"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
