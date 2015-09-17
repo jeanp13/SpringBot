@@ -16,10 +16,11 @@
 
 	<dependencies>
 		
-		<!-- THYMELEAF: for tags -->
+		<!-- FREEMARKER: template engine -->
 		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-thymeleaf</artifactId>
+			<groupId>org.freemarker</groupId>
+			<artifactId>freemarker</artifactId>
+			<version>2.3.23</version>
 		</dependency>
 
 		<!-- SECURITY -->
