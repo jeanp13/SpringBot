@@ -6,7 +6,7 @@ module.exports = function(grunt) {
   grunt.initConfig({
     wiredep: {
       task: {
-        src: ['index.html']
+        src: ['src/main/resources/templates/**.html']
       }
     }
   });
