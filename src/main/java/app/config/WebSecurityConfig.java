@@ -33,7 +33,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		System.out.println("------------------CONFIGURE--------------------");
 		http
 			.authorizeRequests()
-				.antMatchers("/","/index","/static/**","/bower_components/**").permitAll()
+				.antMatchers("/","/index","/static/**").permitAll()
 				.antMatchers("/user/**").access("hasRole('ADMIN')")
 				.antMatchers("/hello").access("hasRole('ADMIN')")
 				.anyRequest().authenticated()
