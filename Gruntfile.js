@@ -1,12 +1,12 @@
 module.exports = function(grunt) {
 
   grunt.loadNpmTasks('grunt-wiredep');
-  grunt.loadNpmTasks('grunt-contrib-watch');
+  //grunt.loadNpmTasks('grunt-contrib-watch');
 
   grunt.initConfig({
     wiredep: {
       task: {
-        src: ['index.html']
+        src: ['./src/main/webapp/WEB-INF/templates/*.html']
       }
     }
   });
