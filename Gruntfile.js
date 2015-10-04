@@ -21,30 +21,48 @@ module.exports = function(grunt) {
 					}
 				},
 				injector : {
-					/*options : {
-						destFile : [ './src/main/webapp/templates/*.html' ],
-						ignorePath : 'app/'
+					/***********************************************************
+					 * options : { destFile : [
+					 * './src/main/webapp/templates/*.html' ], ignorePath :
+					 * 'app/' }, files : { expand : true, cwd :
+					 * 'src/main/webapp/static/', src : [ '
+					 **********************************************************//* .css', '* *//*
+													 * .js' ], dest :
+													 * 'app/static/css', ext :
+													 * '.css' }
+													 */
+					options : {
+					// destFile : [ './src/main/webapp/templates/index.html' ],
+					// ignorePath: 'app/'
+					// min: true
 					},
-					files : {
-						expand : true,
-						cwd : 'src/main/webapp/static/',
-						src : [ '**//*.css', '**//*.js' ],
-						dest : 'app/static/css',
-						ext : '.css'
-					}*/
-					options: {
-						//destFile : [ './src/main/webapp/templates/*.html' ]
-						min: true
+					local_dependencies : {
+						files : {
+							'./src/main/webapp/templates/index.html' : [
+									'src/main/webapp/static/**/*.js',
+									'src/main/webapp/static/**/*.css' ]
+						}
+					}
+				/***************************************************************
+				 * local_dependencies: { files: { expand : true, cwd :
+				 * 'src/main/webapp/static/', src : [ '/static/
+				 **************************************************************//*
+											 * .css' ], dest : '/static/', ext:
+											 * '.css'
+											 * 
+											 *  } }
+											 */
+				},
+				includeSource : {
+					options : {
+						basePath : './src/main/webapp',
+						baseUrl : '/',
 					},
-				    local_dependencies: {
-				      files: {
-				        //'./src/main/webapp/templates/index.html': ['src/main/webapp/static/**/*.js', 'src/main/webapp/static/**/*.css'],
-						//expand : true,
-						cwd : 'src/main/webapp/static/',
-						src : [ '**/*.css' ],
-						dest : 'src/main/webapp/static/**/*.css'
-				      }
-				    }
+					myTarget : {
+						files : {
+							'./src/main/webapp/templates/index.html' : './src/main/webapp/templates/index.html'
+						}
+					}
 				},
 				wiredep : {
 					task : {
@@ -57,6 +75,7 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-bowercopy');
 	grunt.loadNpmTasks('grunt-wiredep');
 	grunt.loadNpmTasks('grunt-injector');
+	grunt.loadNpmTasks('grunt-include-source');
 
 	grunt.registerTask('default', [ 'wiredep' ]);
 };
