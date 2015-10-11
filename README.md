@@ -25,25 +25,15 @@
 - Instalar o Grunt de modo Global (http://gruntjs.com/) : <b>npm install -g grunt-cli</b>
 
 
+<h2>Navegar até a pasta do projeto para executar os comandos abaixo</h2>
+- Habilitar o Grunt para o projeto : <b>npm install grunt --save-dev</b>
+- Grunt Task para copiar arquivos do Bower : <b>npm install grunt-bowercopy --save-dev</b>
+- Grunt Task para injetar dependência do Bower : <b>npm install --save-dev grunt-include-source</b>
+- Importar dependências do bower :  <b>bower install</b>
+- Copiar dependências do Bower : <b>grunt bowercopy</b>
+- Incluir dependências do Bower : <b>grunt include-source</b>
+- Executar o projeto : <b>mvn spring-boot:run</b>
 
+<h2>Bootstrap Template</h2>
+- http://startbootstrap.com/template-overviews/sb-admin-2/
 
-
-
-
-
-- Importar projeto do github https://github.com/millysfabrielle/SpringBot.git
-- Importar dependências do bower  bower install
-- Componente do bower para mover os arquivos necessários npm install -g bower-installer
-- Instalar o grunt Global npm install -g grunt-cli
-- Instalar o Grunt para o projeto npm install grunt --save-dev
-- npm install grunt-bowercopy --save-dev
-- grunt bowercopy
-- npm install grunt-injector --save-dev
-- grunt injector
-- Instalar o wiredep npm install --save-dev grunt-wiredep
-- Executar agendador de tarefas grunt grunt wiredep
-- 
-#TEMPLATE
-	- http://startbootstrap.com/template-overviews/sb-admin-2/
-
-- Executar o projeto mvn spring-boot:run
