@@ -34,7 +34,7 @@
 - Grunt Task para injetar dependência do Bower : <b>npm install --save-dev grunt-include-source</b>
 - Importar dependências do bower :  <b>bower install</b>
 - Copiar dependências do Bower : <b>grunt bowercopy</b>
-- Incluir dependências do Bower : <b>grunt include-source</b>
+- Incluir dependências do Bower : <b>grunt includeSource</b>
 - Executar o projeto : <b>mvn spring-boot:run</b>
 
 <h2>Bootstrap Template</h2>
