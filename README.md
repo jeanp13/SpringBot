@@ -12,6 +12,9 @@
 - Baixar e instalar a IDE eclipse: https://eclipse.org/downloads/
 - Instalar o plugin JBoss Tools : http://tools.jboss.org/
 
+<h2>Banco de Dados</h2>
+- Instar o SQL SERVER 
+
 <h2> GIT </h2>
 - Instalar o GIT SCM : https://git-scm.com/
 - Habilitar o git na ALFA executar o comando <b>git config --global url."https://".insteadOf git://</b>
