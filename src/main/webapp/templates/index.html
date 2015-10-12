@@ -4,13 +4,14 @@
 <title>Hello AngularJS</title>
 
 <!-- include: "type": "css", "files": "**/*.css" -->
-        <link href="/static/bootstrap/css/bootstrap-theme.css" rel="stylesheet" type="text/css">
-        <link href="/static/bootstrap/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css">
-        <link href="/static/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css">
-        <link href="/static/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-        <link href="/static/css/sb-admin-2.css" rel="stylesheet" type="text/css">
-        <link href="/static/css/timeline.css" rel="stylesheet" type="text/css">
-        <!-- /include -->
+<link href="/static/bootstrap/css/bootstrap-theme.css" rel="stylesheet" type="text/css">
+<link href="/static/bootstrap/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css">
+<link href="/static/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css">
+<link href="/static/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+<link href="/static/css/sb-admin-2.css" rel="stylesheet" type="text/css">
+<link href="/static/css/timeline.css" rel="stylesheet" type="text/css">
+<link href="/static/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<!-- /include -->
 
 <style type="text/css">
 [ng\:cloak], [ng-cloak], .ng-cloak {
@@ -22,7 +23,7 @@
 <!--   <body ng-app="hello" ng-cloak class="ng-cloak">-->
 <body ng-app="hello">
 
-	<div ng-controller="navigation" class="container">
+	<div ng-controller="HomeCtrl" class="container">
 		<ul class="nav nav-pills" role="tablist">
 			<li ng-class="{active:tab('home')}"><a href="#/">home</a></li>
 			<li><a href="#login">login</a></li>
@@ -35,10 +36,14 @@
 	
 <!-- include: "type": "js", "files": "**/*.js" -->
 <script src="/static/angular/angular.js"></script>
+<script src="/static/angular/angular.min.js"></script>
 <script src="/static/angular/angular-route.js"></script>
-<script src="/static/jquery/jquery.min.js"></script>
+<script src="/static/angular/angular-route.min.js"></script>
+<script src="/static/angular/angular-local-storage.min.js"></script>
 <script src="/static/bootstrap/js/bootstrap.js"></script>
+<script src="/static/bootstrap/js/bootstrap.min.js"></script>
 <script src="/static/bootstrap/js/npm.js"></script>
+<script src="/static/jquery/jquery.min.js"></script>
 <script src="/static/js/script.js"></script>
 <!-- /include -->
 	

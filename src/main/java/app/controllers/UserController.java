@@ -1,5 +1,7 @@
 package app.controllers;
 
+import javax.annotation.security.RolesAllowed;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -9,23 +11,26 @@ import org.springframework.web.bind.annotation.RestController;
 
 import app.models.User;
 import app.models.UserRepository;
+import app.services.MockService;
 
 @RestController
-@RequestMapping(value="/usuario")
-public class UserController {
+@RequestMapping(value="/user")
+@RolesAllowed(value = "ADMIN")
+public class UserController extends AbstractController {
 
 	@Autowired
 	private UserRepository userRepository;
+	@Autowired
+	private MockService mockService;
 	
-	@RequestMapping(value = "/list", produces = "application/json")
-	public String list(@RequestParam(value="texto", defaultValue="sem texto") String texto){
-	
-		return String.format("%s", texto);
-				
+	@RequestMapping(value = "/list-error")
+	public ControllerResponse list(){
+		mockService.makeErrorHappen();
+		return response(null);
 	}
 	
-	@RequestMapping("/list2")
-	public User list2(){
+	@RequestMapping("/list")
+	public ControllerResponse list2(){
 		
 		User user = new User();
 		user.setUserId(0);
@@ -34,7 +39,7 @@ public class UserController {
 		user.setPassword("123");
 		user.setUsername("username");
 		
-		return user;
+		return response(user);
 	}
 	
 	@RequestMapping("/create")

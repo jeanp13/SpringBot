@@ -17,6 +17,7 @@ module.exports = function(grunt) {
 							'src/main/webapp/static/font-awesome/css' : 'font-awesome/css/font-awesome.min.css',
 							'src/main/webapp/static/font-awesome/fonts' : 'font-awesome/fonts',
 							
+							'src/main/webapp/static/angular' : 'angular-local-storage/dist/angular-local-storage.min.js',
 							'src/main/webapp/static/jquery' : 'jquery/dist/jquery.min.js',
 							'src/main/webapp/static/angular/angular.min.js' : 'angular/angular.min.js',
 							'src/main/webapp/static/angular/angular-route.min.js' : 'angular-route/angular-route.min.js',

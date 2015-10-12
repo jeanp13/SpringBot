@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
@@ -20,10 +21,12 @@ import org.springframework.security.config.annotation.web.servlet.configuration.
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.authentication.Http403ForbiddenEntryPoint;
 import org.springframework.security.web.csrf.CsrfFilter;
 import org.springframework.security.web.csrf.CsrfToken;
 import org.springframework.security.web.csrf.CsrfTokenRepository;
 import org.springframework.security.web.csrf.HttpSessionCsrfTokenRepository;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.filter.OncePerRequestFilter;
 import org.springframework.web.util.WebUtils;
 
@@ -59,15 +62,13 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity http) throws Exception {
 		
 		// Desabilitando temporariamente o CSRF
-		http.csrf().disable();
-		
-		http
+		//http.csrf().disable();
+		http.httpBasic().authenticationEntryPoint(new Http403ForbiddenEntryPoint()).and().csrf().disable()
 			.authorizeRequests()
-				.antMatchers("/static/**","/templates/**", "/index.html", "/home.html", "/login.html", "/").permitAll()
-				.antMatchers("/usuario/**").access("hasRole('ADMIN')")
-				.antMatchers("/hello","/denied.html").access("hasRole('ADMIN')")
-				.anyRequest().authenticated()
-				.and()
+				.antMatchers("/static/**","/templates/**", "/index.html", "/", "/login").permitAll()
+				// .antMatchers("/user/**").access("hasRole('ADMIN')")
+				.anyRequest().authenticated();
+				/*.and()
 			.formLogin()
 				//.successHandler(authSuccess)
 				//.failureHandler(authFailure)
@@ -78,11 +79,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 				.and()
 			.logout()
 				.permitAll()
-				.and()
-			.csrf()
+				.and()*/
+			/*.csrf()
 			.csrfTokenRepository(csrfTokenRepository())
 			.and()
-		.addFilterAfter(csrfHeaderFilter(), CsrfFilter.class);
+		.addFilterAfter(csrfHeaderFilter(), CsrfFilter.class);*/
 	}
 	
 	@Bean
