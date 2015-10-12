@@ -25,9 +25,8 @@ public class MyUserDetailsService implements UserDetailsService {
 	
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		System.out.println("------------------------- 01 ");
 		app.models.User user = userRepository.findByUsername(username);
-		
+		System.out.println( "--------------------- USERNAME " + username);
 		List<GrantedAuthority> authorities = this.buildUserAuthority(user.getRoles());
 		
 		return this.buildUserForAuthentication(user, authorities);
@@ -35,14 +34,14 @@ public class MyUserDetailsService implements UserDetailsService {
 	
 	// convert an app.models.User to an org.springframework.security.core.userdetails.User
 	private User buildUserForAuthentication(app.models.User user, List<GrantedAuthority> authorities){
-		System.out.println("------------------------- 02 ");
+		System.out.println( "=--------------------- USERNAME " + user.getUsername());
+		System.out.println( "=--------------------- PASSWORD " + user.getPassword());
 		return new User(user.getUsername(), user.getPassword(), user.isEnabled(), true, true, true, authorities);
 		
 	}
 	
 	// get all user's permissions and convert to a GrantedAuthority array
 	private List<GrantedAuthority> buildUserAuthority(List<Role> userRoles){
-		System.out.println("------------------------- 03 ");
 		List<GrantedAuthority> result = new ArrayList<GrantedAuthority>();
 		
 		for(Role role : userRoles){
