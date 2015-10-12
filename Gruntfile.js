@@ -13,45 +13,16 @@ module.exports = function(grunt) {
 					// Entire folders
 					folders : {
 						files : {
+							// font awesome
+							'src/main/webapp/static/font-awesome/css' : 'font-awesome/css/font-awesome.min.css',
+							'src/main/webapp/static/font-awesome/fonts' : 'font-awesome/fonts',
+							
 							'src/main/webapp/static/jquery' : 'jquery/dist/jquery.min.js',
 							'src/main/webapp/static/angular/angular.min.js' : 'angular/angular.min.js',
-
+							'src/main/webapp/static/angular/angular-route.min.js' : 'angular-route/angular-route.min.js',
 							'src/main/webapp/static/bootstrap' : 'bootstrap/dist'
 						}
 					}
-				},
-				injector : {
-					/***********************************************************
-					 * options : { destFile : [
-					 * './src/main/webapp/templates/*.html' ], ignorePath :
-					 * 'app/' }, files : { expand : true, cwd :
-					 * 'src/main/webapp/static/', src : [ '
-					 **********************************************************//* .css', '* *//*
-													 * .js' ], dest :
-													 * 'app/static/css', ext :
-													 * '.css' }
-													 */
-					options : {
-					// destFile : [ './src/main/webapp/templates/index.html' ],
-					// ignorePath: 'app/'
-					// min: true
-					},
-					local_dependencies : {
-						files : {
-							'./src/main/webapp/templates/index.html' : [
-									'src/main/webapp/static/**/*.js',
-									'src/main/webapp/static/**/*.css' ]
-						}
-					}
-				/***************************************************************
-				 * local_dependencies: { files: { expand : true, cwd :
-				 * 'src/main/webapp/static/', src : [ '/static/
-				 **************************************************************//*
-											 * .css' ], dest : '/static/', ext:
-											 * '.css'
-											 * 
-											 *  } }
-											 */
 				},
 				includeSource : {
 					options : {
@@ -63,12 +34,6 @@ module.exports = function(grunt) {
 							'./src/main/webapp/templates/index.html' : './src/main/webapp/templates/index.html'
 						}
 					}
-				},
-				wiredep : {
-					task : {
-						src : [ './src/main/webapp/templates/*.html' ]
-					},
-					ignorePath : '/../../../public'
 				}
 			});
 

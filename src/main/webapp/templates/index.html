@@ -1,9 +1,9 @@
-<!DOCTYPE html>
-<html >
-    <head>
-        <title>Spring Security Example</title>
+<!doctype html>
+<html>
+<head>
+<title>Hello AngularJS</title>
 
-        <!-- include: "type": "css", "files": "**/*.css" -->
+<!-- include: "type": "css", "files": "**/*.css" -->
         <link href="/static/bootstrap/css/bootstrap-theme.css" rel="stylesheet" type="text/css">
         <link href="/static/bootstrap/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css">
         <link href="/static/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css">
@@ -11,22 +11,36 @@
         <link href="/static/css/sb-admin-2.css" rel="stylesheet" type="text/css">
         <link href="/static/css/timeline.css" rel="stylesheet" type="text/css">
         <!-- /include -->
-    </head>
-    <body ng-app="">
-        <h1>Welcome! TESTE</h1>
 
-		<p>{{3 + 4}}</p>
-		<p>Name : <input type="text" ng-model="name"></p>
- 		<h1>Hello {{name}}</h1>
+<style type="text/css">
+[ng\:cloak], [ng-cloak], .ng-cloak {
+	display: none !important;
+}
+</style>
+</head>
 
+<!--   <body ng-app="hello" ng-cloak class="ng-cloak">-->
+<body ng-app="hello">
+
+	<div ng-controller="navigation" class="container">
+		<ul class="nav nav-pills" role="tablist">
+			<li ng-class="{active:tab('home')}"><a href="#/">home</a></li>
+			<li><a href="#login">login</a></li>
+			<li ng-show="authenticated"><a href="" ng-click="logout()">logout</a></li>
+		</ul>
+	</div>
+	<div ng-view class="container"></div>
 	
-		<!-- include: "type": "js", "files": "**/*.js" -->
-		<script src="/static/angular/angular.min.js"></script>
-		<script src="/static/bootstrap/js/bootstrap.js"></script>
-		<script src="/static/bootstrap/js/bootstrap.min.js"></script>
-		<script src="/static/bootstrap/js/npm.js"></script>
-		<script src="/static/jquery/jquery.min.js"></script>
-		<!-- /include -->
-
-    </body>
+	<p>The number {{3 + 4}}.</p>
+	
+<!-- include: "type": "js", "files": "**/*.js" -->
+<script src="/static/angular/angular.js"></script>
+<script src="/static/angular/angular-route.js"></script>
+<script src="/static/jquery/jquery.min.js"></script>
+<script src="/static/bootstrap/js/bootstrap.js"></script>
+<script src="/static/bootstrap/js/npm.js"></script>
+<script src="/static/js/script.js"></script>
+<!-- /include -->
+	
+</body>
 </html>

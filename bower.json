@@ -19,7 +19,8 @@
   "dependencies": {
     "bootstrap": "~3.3.5",
     "angular": "1.4.7",
-    "font-awesome": "fontawesome#~4.4.0"
+    "font-awesome": "fontawesome#~4.4.0",
+    "angular-route": "~1.4.7"
   },
   "overrides": {
     "bootstrap": {
@@ -29,14 +30,14 @@
         "less/bootstrap.less"
       ]
     },
-	"font-awesome": {
-		"main": [
-			"css/font-awesome.min.css",
-			"fonts/fontawesome-webfont.eot",
-			"fonts/fontawesome-webfont.woff",
-			"fonts/fontawesome-webfont.ttf",
-			"fonts/fontawesome-webfont.svg"
-		 ]
-	}
+    "font-awesome": {
+      "main": [
+        "css/font-awesome.min.css",
+        "fonts/fontawesome-webfont.eot",
+        "fonts/fontawesome-webfont.woff",
+        "fonts/fontawesome-webfont.ttf",
+        "fonts/fontawesome-webfont.svg"
+      ]
+    }
   }
 }

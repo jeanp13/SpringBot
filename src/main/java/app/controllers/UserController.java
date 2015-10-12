@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.RestController;
 import app.models.User;
 import app.models.UserRepository;
 
-@Controller
-@RequestMapping(value="/user")
+@RestController
+@RequestMapping(value="/usuario")
 public class UserController {
 
 	@Autowired
